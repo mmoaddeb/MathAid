@@ -1,0 +1,15 @@
+PROJECT NAME = "Math Aid"
+PROJECT START DATE = "07/29/2015"
+PROJECT AUTHOR = "Mehdi Moaddeb"
+
+PROJECT GOAL = "
+	Create a simple tool for math students for grades 1 through 8 to practice
+	the basic math operations of addition, subtraction, multiplication, division, and 
+	exponents. The UI as of 07/29/2015 is to be entirely made of the cmd/bash/shell/terminal/etc.
+"
+
+LANGUAGE USED = "Python 2.7.10"
+TARGETED PLATFORMS = "Mac OS - Windows - Various Linux Distributions"
+
+THIRD PARTY LIBRARIES USED = "None"
+

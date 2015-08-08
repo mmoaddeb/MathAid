@@ -1,0 +1,66 @@
+[07/29/2015]
+
+BUGS:
+	1) When selecting division for practice, it is possible to 
+	   get a divide by zero error with the randomly generated 
+	   numbers
+	   
+	   ****** BUG #1 SOLVED  - CHECK DATE 08/03/2015 ****** 
+
+	2) When an int is expected for selecting an option or choosing
+	   a range of numbers, it is possible to crash the program if an
+	   int is not given. The same issue can occur when answering the
+	   generated questions and a number is not entered for input.
+
+FEATURES TO ADD/CHANGES TO MAKE:
+	1) When selecting exponents for practice, allow the user to 
+	   choose the range of bases and exponents that could be
+	   generated separately
+	   
+CHANGES MADE:
+	1) NONE
+	   
+====================================================================================================
+[08/02/2015]
+	
+FEATURES TO ADD/CHANGES TO MAKE:
+	3) Organize the constants in the program at the top instead of having them
+	   inside the various functions
+	  
+	   ****** CHANGE #3 SOLVED - CHECK DATE 08/03/2015 ****** 	
+	   
+	4) Create a function to handle the process of making the 'Results.txt' instead of having
+	   the process be part of the main function.
+	   
+	   ****** CHANGE #4 SOLVED - CHECK DATE 08/03/2015 ******
+
+CHANGES MADE:
+	1) NONE
+	
+====================================================================================================
+[08/03/2015]
+
+FEATURES TO ADD/CHANGES TO MAKE:
+	5) When performing division problems, it is possible to generate questions
+	   that need an answer that is not a whole number and this may not be ideal
+	   for beginner math practice
+
+CHANGES MADE:
+	1) Through the use of an if statement the possibility of getting a divide by zero is removed.
+	   The if statement converts the denominator to 1 if it is 0 in order to avoid a divide by zero
+	   error. This operation is taking place in the generate_question function. [BUG #1]
+	   
+	2) All constants were moved out of their respective functions and placed on top of the program 
+	   where all functions are now able to access them. [CHANGE #3]
+	   
+	3) A store_results function was created and the code for storing the results in the Results.txt
+	   file is now inside it instead of the main function  [CHANGE #4]
+
+====================================================================================================
+[08/05/2015]
+
+CHANGES MADE:
+	1) The select_numb_problems and select_mode functions were modified to handle the incorrect
+	   input and the programmer no longer crashes at those two points. However, the generate_question
+	   and select_range functions still have to be changed to account for incorrect input. This is
+	   done to account for BUG #2
