@@ -3,6 +3,7 @@ from random import randrange
 from time import strftime
 from itertools import izip
 
+# The version of the program
 version = "0.02"
 
 # Constants representing the different operations to practice
