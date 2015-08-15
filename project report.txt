@@ -64,3 +64,11 @@ CHANGES MADE:
 	   input and the programmer no longer crashes at those two points. However, the generate_question
 	   and select_range functions still have to be changed to account for incorrect input. This is
 	   done to account for BUG #2
+	   
+====================================================================================================
+
+[08/14/2015]
+
+CHANGES MADE:
+	1) In order to better organize the code, a dictionary was created to hold the format that each 
+	   question would be presented in. This dictionary is within the generate_question function.
