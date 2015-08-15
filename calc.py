@@ -136,7 +136,7 @@ def generate_question (selection, numb_probs, minimum, maximum):
 	user_answer = []
 	question = []
 	
-	format = {
+	text_format = {
 		ADDITION: "%d + %d = ?",
 		SUBTRACTION: "%d - %d = ?",
 		MULTIPLICATION: "%d * %d = ?",
@@ -152,29 +152,29 @@ def generate_question (selection, numb_probs, minimum, maximum):
 			
 		if selection is ADDITION:
 			actual_answer = numb1 + numb2
-			question.append (format[ADDITION] % (numb1, numb2))
+			question.append (text_format[ADDITION] % (numb1, numb2))
 			given_answer = float (raw_input ("%d %s %d %s" % (numb1, "+", numb2, "= ")))
 			
 		elif selection is SUBTRACTION:
 			actual_answer = numb1 - numb2
-			question.append (format[SUBTRACTION] % (numb1, numb2))
+			question.append (text_format[SUBTRACTION] % (numb1, numb2))
 			given_answer = float (raw_input ("%d %s %d %s" % (numb1, "-", numb2, "= ")))
 			
 		elif selection is MULTIPLICATION:
 			actual_answer = numb1 * numb2
-			question.append (format[MULTIPLICATION] % (numb1, numb2))
+			question.append (text_format[MULTIPLICATION] % (numb1, numb2))
 			given_answer = float (raw_input ("%d %s %d %s" % (numb1, "*", numb2, "= ")))
 			
 		elif selection is DIVISION:
 			if numb2 == 0: 
 				numb2 = 1
 			actual_answer = numb1 / float (numb2)
-			question.append (format[DIVISION] % (numb1, numb2))
+			question.append (text_format[DIVISION] % (numb1, numb2))
 			given_answer = float (raw_input ("%d %s %d %s" % (numb1, "/", numb2, "= ")))
 			
 		elif selection is EXPONENTS:
 			actual_answer = numb1 ** float (numb2)
-			question.append (format[EXPONENTS] % (numb1, numb2))
+			question.append (text_format[EXPONENTS] % (numb1, numb2))
 			given_answer = float (raw_input ("%d %s %d %s" % (numb1, "^", numb2, "= ")))
 				
 		correct_answer.append (actual_answer)
