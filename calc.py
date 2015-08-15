@@ -3,6 +3,7 @@ from random import randrange
 from time import strftime
 from itertools import izip
 
+# The version of the program
 version = "0.02"
 
 # Constants representing the different operations to practice
@@ -135,6 +136,14 @@ def generate_question (selection, numb_probs, minimum, maximum):
 	user_answer = []
 	question = []
 	
+	format = {
+		ADDITION: "%d + %d = ?",
+		SUBTRACTION: "%d - %d = ?",
+		MULTIPLICATION: "%d * %d = ?",
+		DIVISION: "%d / %d = ?",
+		EXPONENTS: "%d ^ %d = ?"
+	}
+	
 	for item in xrange (0, numb_probs):
 		numb1, numb2 = generate_numbers (minimum, maximum)
 		
@@ -143,29 +152,29 @@ def generate_question (selection, numb_probs, minimum, maximum):
 			
 		if selection is ADDITION:
 			actual_answer = numb1 + numb2
-			question.append ("%d + %d = ?" % (numb1, numb2))
+			question.append (format[ADDITION] % (numb1, numb2))
 			given_answer = float (raw_input ("%d %s %d %s" % (numb1, "+", numb2, "= ")))
 			
 		elif selection is SUBTRACTION:
 			actual_answer = numb1 - numb2
-			question.append ("%d - %d = ?" % (numb1, numb2))
+			question.append (format[SUBTRACTION] % (numb1, numb2))
 			given_answer = float (raw_input ("%d %s %d %s" % (numb1, "-", numb2, "= ")))
 			
 		elif selection is MULTIPLICATION:
 			actual_answer = numb1 * numb2
-			question.append ("%d * %d = ?" % (numb1, numb2))
+			question.append (format[MULTIPLICATION] % (numb1, numb2))
 			given_answer = float (raw_input ("%d %s %d %s" % (numb1, "*", numb2, "= ")))
 			
 		elif selection is DIVISION:
 			if numb2 == 0: 
 				numb2 = 1
 			actual_answer = numb1 / float (numb2)
-			question.append ("%d / %d = ?" % (numb1, numb2))
+			question.append (format[DIVISION] % (numb1, numb2))
 			given_answer = float (raw_input ("%d %s %d %s" % (numb1, "/", numb2, "= ")))
 			
 		elif selection is EXPONENTS:
 			actual_answer = numb1 ** float (numb2)
-			question.append ("%d ^ %d = ?" % (numb1, numb2))
+			question.append (format[EXPONENTS] % (numb1, numb2))
 			given_answer = float (raw_input ("%d %s %d %s" % (numb1, "^", numb2, "= ")))
 				
 		correct_answer.append (actual_answer)
