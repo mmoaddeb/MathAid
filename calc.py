@@ -6,12 +6,13 @@ from itertools import izip
 # The version of the program
 version = "0.02"
 
-# Constants representing the different operations to practice
+# Constants representing the different operations/modes
 ADDITION = 1
 SUBTRACTION = 2
 MULTIPLICATION = 3
 DIVISION = 4
 EXPONENTS = 5
+QUESTION = 6
 
 # Constants representing the user's choices
 YES = 1
@@ -137,11 +138,12 @@ def generate_question (selection, numb_probs, minimum, maximum):
 	question = []
 	
 	text_format = {
-		ADDITION: "%d + %d = ?",
-		SUBTRACTION: "%d - %d = ?",
-		MULTIPLICATION: "%d * %d = ?",
-		DIVISION: "%d / %d = ?",
-		EXPONENTS: "%d ^ %d = ?"
+		ADDITION : "%d + %d = ?",
+		SUBTRACTION : "%d - %d = ?",
+		MULTIPLICATION : "%d * %d = ?",
+		DIVISION : "%d / %d = ?",
+		EXPONENTS : "%d ^ %d = ?",
+		QUESTION : "%d %s %d %s"
 	}
 	
 	for item in xrange (0, numb_probs):
@@ -153,29 +155,29 @@ def generate_question (selection, numb_probs, minimum, maximum):
 		if selection is ADDITION:
 			actual_answer = numb1 + numb2
 			question.append (text_format[ADDITION] % (numb1, numb2))
-			given_answer = float (raw_input ("%d %s %d %s" % (numb1, "+", numb2, "= ")))
+			given_answer = float (raw_input (text_format[QUESTION] % (numb1, "+", numb2, "= ")))
 			
 		elif selection is SUBTRACTION:
 			actual_answer = numb1 - numb2
 			question.append (text_format[SUBTRACTION] % (numb1, numb2))
-			given_answer = float (raw_input ("%d %s %d %s" % (numb1, "-", numb2, "= ")))
+			given_answer = float (raw_input (text_format[QUESTION] % (numb1, "-", numb2, "= ")))
 			
 		elif selection is MULTIPLICATION:
 			actual_answer = numb1 * numb2
 			question.append (text_format[MULTIPLICATION] % (numb1, numb2))
-			given_answer = float (raw_input ("%d %s %d %s" % (numb1, "*", numb2, "= ")))
+			given_answer = float (raw_input (text_format[QUESTION] % (numb1, "*", numb2, "= ")))
 			
 		elif selection is DIVISION:
 			if numb2 == 0: 
 				numb2 = 1
 			actual_answer = numb1 / float (numb2)
 			question.append (text_format[DIVISION] % (numb1, numb2))
-			given_answer = float (raw_input ("%d %s %d %s" % (numb1, "/", numb2, "= ")))
+			given_answer = float (raw_input (text_format[QUESTION] % (numb1, "/", numb2, "= ")))
 			
 		elif selection is EXPONENTS:
 			actual_answer = numb1 ** float (numb2)
 			question.append (text_format[EXPONENTS] % (numb1, numb2))
-			given_answer = float (raw_input ("%d %s %d %s" % (numb1, "^", numb2, "= ")))
+			given_answer = float (raw_input (text_format[QUESTION] % (numb1, "^", numb2, "= ")))
 				
 		correct_answer.append (actual_answer)
 		user_answer.append (given_answer)
