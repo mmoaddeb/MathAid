@@ -114,25 +114,6 @@ def select_numb_problems ():
 		
 	return selection
 	
-###########################################################################################
-# HELPER FUNCTION FOR GENERATE_QUESTION
-def generate_numbers (minimum, maximum):
-	"""
-	DESCRIPTION:
-		generate two random numbers that can be used to create a practice problem
-		regardless of the operation being done
-	PARAMS:
-		minimum - the smallest number that is allowed to be generated
-		maximum - the largest number that is allowed to be generated
-	RETURNS:
-		numb1 - the first random number that was generated
-		numb2 - the second random number that was generated
-	"""
-	numb1 = float (randrange (minimum, maximum + 1))
-	numb2 = float (randrange (minimum, maximum + 1))
-	
-	return numb1, numb2
-	
 ############################################################################################
 def generate_question (selection, numb_probs, minimum, maximum):
 	"""
@@ -163,7 +144,8 @@ def generate_question (selection, numb_probs, minimum, maximum):
 	}
 	
 	for item in xrange (0, numb_probs):
-		numb1, numb2 = generate_numbers (minimum, maximum)
+		numb1 = float (randrange (minimum, maximum + 1))
+		numb2 = float (randrange (minimum, maximum + 1))
 		
 		actual_answer = 0
 		given_answer = 0
