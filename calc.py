@@ -19,6 +19,27 @@ YES = 1
 NO = 2
 
 #########################################################################################
+# HELPER FUNCTION FOR FUNCTIONS THAT TAKE KEYBOARD INPUT
+def verify_selection (prompt="> "):
+	"""
+	DESCRIPTION:
+		Ensures that the value givne by the user can be converted into an int/float value by
+		making the user re-enter a value when invalid input is detected
+	PARAMS:
+		prompt - the prompt to show to the user
+	RETURNS:
+		data - the valid value that the user entered in the form of int
+	"""
+	data = ""
+	
+	while not data.isdigit ():
+		data = raw_input (prompt)
+		
+	data = int (data)
+	
+	return data
+
+#########################################################################################
 def select_mode ():
 	"""
 	DESCRIPTION:
@@ -36,10 +57,7 @@ def select_mode ():
 		print "\t4 - Division"
 		print "\t5 - Exponents"
 		
-		user_input = raw_input ("> ")
-		
-		if str.isdigit (user_input):
-			selection = int (user_input)
+		selection = verify_selection ()
 		
 	return selection
 	
@@ -92,9 +110,7 @@ def select_numb_problems ():
 	selection = 0
 	
 	while selection <= 0:
-		user_input = raw_input ("How many problems would you like to solve? ")
-		if str.isdigit(user_input):
-			selection = int (user_input)
+		selection = verify_selection ("How many problems would you like to solve? ")
 		
 	return selection
 	

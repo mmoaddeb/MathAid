@@ -66,9 +66,14 @@ CHANGES MADE:
 	   done to account for BUG #2
 	   
 ====================================================================================================
-
 [08/14/2015]
 
 CHANGES MADE:
 	1) In order to better organize the code, a dictionary was created to hold the format that each 
 	   question would be presented in. This dictionary is within the generate_question function.
+	   
+====================================================================================================
+[08/16/2015]
+
+CHANGES MADE:
+	1) A verify_selection function is added to address the issue that was reported under BUG #2 on 07/29/2015
