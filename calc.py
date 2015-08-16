@@ -77,25 +77,25 @@ def select_range ():
 	
 	while selection is NO:
 		print "Select the range of numbers to practice with:"
-		min_val = int (raw_input ("\tMinimum value (inclusive): "))
-		max_val = int (raw_input ("\tMaximum value (inclusive): "))
+		min_val = verify_selection ("\tMinimum value (inclusive): ")
+		max_val = verify_selection ("\tMaximum value (inclusive): ")
 		
 		while max_val <= min_val:
 			print "The maximum value has to be greater than the minimum!"
-			max_val = int (raw_input ("\tMaximum value (inclusive): "))
+			max_val = verify_selection ("\tMaximum value (inclusive): ")
 			
 		print "Do you want the range from %d to %d?" % (min_val, max_val)
 		print "\t1 - YES"
 		print "\t2 - NO"
 		
-		selection = int (raw_input ("> "))
+		selection = verify_selection ()
 		
 		while selection != YES and selection != NO:
 			print "Do you want the range from %d to %d?" % (min_val, max_val)
 			print "\t1 - YES"
 			print "\t2 - NO"
 		
-			selection = int (raw_input ("> "))
+			selection = verify_selection ()
 			
 	return min_val, max_val
 	
@@ -257,7 +257,7 @@ def store_results (numb_correct, numb_wrong, question, loc_mistakes, given_answe
 		results.write ("Incorrectly answered %d problems\n\n" % numb_wrong)
 		
 		for i in xrange (len (question)):
-			results.write ("%d) %s\n" % (i, question[i]))
+			results.write ("%d) %s\n" % (i + 1, question[i]))
 			# If the problem was flagged as answered incorrectly
 			# write a 'MISTAKE' label next to it
 			if i in loc_mistakes:

@@ -77,3 +77,5 @@ CHANGES MADE:
 
 CHANGES MADE:
 	1) A verify_selection function is added to address the issue that was reported under BUG #2 on 07/29/2015
+	
+	2) The question numbers on the output file now starts from one instead of 0
