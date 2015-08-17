@@ -79,3 +79,18 @@ CHANGES MADE:
 	1) A verify_selection function is added to address the issue that was reported under BUG #2 on 07/29/2015
 	
 	2) The question numbers on the output file now starts from one instead of 0
+	
+=====================================================================================================
+[08/17/2015]
+
+FEATURES TO ADD/CHANGES TO MAKE:
+	6) Allow the user to select the name of the file where they would like to store the results of 
+	   their session instead of making it Results.txt by default. However, the file type should still
+	   remain a text file but the name should be selected by the user. This functionality requires
+	   the program to check if the chosen file name is valid or not.
+
+CHANGES MADE:
+	1) The verify selection function was modified because initially it did not recognize negative
+	   numbers as valid selections. This was due to the functions reliance on the isdigit. With the
+	   changes made, the isdigit method is still used but the function as a whole now recognizes negative
+	   integers as valid values.	
