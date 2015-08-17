@@ -31,11 +31,21 @@ def verify_selection (prompt="> "):
 		data - the valid value that the user entered in the form of int
 	"""
 	data = ""
+	is_negative = False
 	
 	while not data.isdigit ():
+		is_negative = False
 		data = raw_input (prompt)
 		
-	data = int (data)
+		# In case the user enters a negative whole number
+		if data.startswith ("-") and len (data) > 1:
+			data = data[1:]
+			is_negative = True
+	
+	if is_negative:
+		data = int (data) * -1
+	else:
+		data = int (data)
 	
 	return data
 
@@ -76,7 +86,7 @@ def select_range ():
 	max_val = 0
 	
 	while selection is NO:
-		print "Select the range of numbers to practice with:"
+		print "Select the range of whole numbers to practice with:"
 		min_val = verify_selection ("\tMinimum value (inclusive): ")
 		max_val = verify_selection ("\tMaximum value (inclusive): ")
 		
