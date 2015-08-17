@@ -258,15 +258,15 @@ def main ():
 	given_answer, actual_answer, question = generate_question (selection, numb_problems, minimum, maximum)
 	numb_correct, numb_wrong, loc_mistakes = check_answers (given_answer, actual_answer)
 	
+	# Store the results of the session in a file called 'Results.txt' 
+	store_results (numb_correct, numb_wrong, question, loc_mistakes, given_answer, actual_answer)
+	
 	print "-" * 74
 	print "* Number of correct answers =", numb_correct
 	print "* Number of wrong answers =", numb_wrong	
 	print "* Check the corresponding 'Results.txt' file for more details"
 	print "-" * 74
 	print "\n\tThank You for using Math Aid, Version %s\n" % version
-	
-	# Store the results of the session in a file called 'Results.txt' 
-	store_results (numb_correct, numb_wrong, question, loc_mistakes, given_answer, actual_answer)
 
 #################################################################################################
 
