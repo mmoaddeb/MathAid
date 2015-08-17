@@ -236,7 +236,7 @@ def store_results (numb_correct, numb_wrong, question, loc_mistakes, given_answe
 		results.write (strftime ("%c") + "\n")
 		results.write ("--------------------------------------------------\n")
 		results.write ("Correctly answered: %d problems\n" % numb_correct)
-		results.write ("Incorrectly answered %d problems\n\n" % numb_wrong)
+		results.write ("Incorrectly answered: %d problems\n\n" % numb_wrong)
 		
 		for i in xrange (len (question)):
 			results.write ("%d) %s\n" % (i + 1, question[i]))
