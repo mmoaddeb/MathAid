@@ -23,7 +23,7 @@ NO = 2
 def verify_selection (prompt="> "):
 	"""
 	DESCRIPTION:
-		Ensures that the value givne by the user can be converted into an int/float value by
+		Ensures that the value given by the user can be converted into an int/float value by
 		making the user re-enter a value when invalid input is detected
 	PARAMS:
 		prompt - the prompt to show to the user
