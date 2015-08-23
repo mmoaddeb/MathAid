@@ -19,6 +19,23 @@ YES = 1
 NO = 2
 
 #########################################################################################
+def is_int (data):
+	"""
+	DESCRIPTION:
+		Determines whether or not a string can be converted to an integer
+	PARAMS:
+		Data - the string to be converted to an integer
+	RETURNS:
+		True if data can be converted to a valid int otherwise, False is returned
+	"""
+	try:
+		int (data)
+	except ValueError:
+		return False
+	
+	return True
+
+#########################################################################################
 # HELPER FUNCTION FOR FUNCTIONS THAT TAKE KEYBOARD INPUT
 def verify_selection (prompt="> "):
 	"""
@@ -28,26 +45,49 @@ def verify_selection (prompt="> "):
 	PARAMS:
 		prompt - the prompt to show to the user
 	RETURNS:
-		data - the valid value that the user entered in the form of int
+		response - the valid value that the user entered in the form of int
 	"""
-	data = ""
-	is_negative = False
+	response = ""
 	
-	while not data.isdigit ():
-		is_negative = False
-		data = raw_input (prompt)
+	while not is_int (response):
+		response = raw_input (prompt)
+	
+	return int (response)
+	
+#########################################################################################	
+def is_float (data):
+	"""
+	DESCRIPTION:
+		Determines whether or not a string can be converted to a float
+	PARAMS:
+		Data - the string to be converted to a float
+	RETURNS:
+		True if data can be converted to a valid float otherwise, False is returned
+	"""
+	try:
+		float (data)
+	except ValueError:
+		return False
 		
-		# In case the user enters a negative whole number
-		if data.startswith ("-") and len (data) > 1:
-			data = data[1:]
-			is_negative = True
+	return True
+
+#########################################################################################
+def verify_answer (prompt):
+	"""
+	DESCRIPTION:
+		Ensures that the user gave an answer that can be converted to a float. This function
+		works hand in hand with the generate question function.
+	PARAMS:
+		prompt - the prompt/question to show to the user
+	RETURNS:
+		response - the valid value that the user entered in the form of a float
+	"""
+	response = ""
 	
-	if is_negative:
-		data = int (data) * -1
-	else:
-		data = int (data)
-	
-	return data
+	while not is_float (response):
+		response = raw_input (prompt)
+		
+	return float (response)
 
 #########################################################################################
 def select_mode ():
@@ -163,29 +203,29 @@ def generate_question (selection, numb_probs, minimum, maximum):
 		if selection is ADDITION:
 			actual_answer = numb1 + numb2
 			question.append (text_format[ADDITION] % (numb1, numb2))
-			given_answer = float (raw_input (text_format[QUESTION] % (numb1, "+", numb2, "= ")))
+			given_answer = verify_answer (text_format[QUESTION] % (numb1, "+", numb2, "= "))
 			
 		elif selection is SUBTRACTION:
 			actual_answer = numb1 - numb2
 			question.append (text_format[SUBTRACTION] % (numb1, numb2))
-			given_answer = float (raw_input (text_format[QUESTION] % (numb1, "-", numb2, "= ")))
+			given_answer = verify_answer (text_format[QUESTION] % (numb1, "-", numb2, "= "))
 			
 		elif selection is MULTIPLICATION:
 			actual_answer = numb1 * numb2
 			question.append (text_format[MULTIPLICATION] % (numb1, numb2))
-			given_answer = float (raw_input (text_format[QUESTION] % (numb1, "*", numb2, "= ")))
+			given_answer = verify_answer (text_format[QUESTION] % (numb1, "*", numb2, "= "))
 			
 		elif selection is DIVISION:
 			if numb2 == 0: 
 				numb2 = 1
 			actual_answer = numb1 / float (numb2)
 			question.append (text_format[DIVISION] % (numb1, numb2))
-			given_answer = float (raw_input (text_format[QUESTION] % (numb1, "/", numb2, "= ")))
+			given_answer = verify_answer (text_format[QUESTION] % (numb1, "/", numb2, "= "))
 			
 		elif selection is EXPONENTS:
 			actual_answer = numb1 ** float (numb2)
 			question.append (text_format[EXPONENTS] % (numb1, numb2))
-			given_answer = float (raw_input (text_format[QUESTION] % (numb1, "^", numb2, "= ")))
+			given_answer = verify_answer (text_format[QUESTION] % (numb1, "^", numb2, "= "))
 				
 		correct_answer.append (actual_answer)
 		user_answer.append (given_answer)

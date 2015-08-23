@@ -12,6 +12,8 @@ BUGS:
 	   int is not given. The same issue can occur when answering the
 	   generated questions and a number is not entered for input.
 
+	   ****** BUG #2 SOLVED  - CHECK DATE 08/22/2015 ****** 
+	   
 FEATURES TO ADD/CHANGES TO MAKE:
 	1) When selecting exponents for practice, allow the user to 
 	   choose the range of bases and exponents that could be
@@ -94,3 +96,13 @@ CHANGES MADE:
 	   numbers as valid selections. This was due to the functions reliance on the isdigit. With the
 	   changes made, the isdigit method is still used but the function as a whole now recognizes negative
 	   integers as valid values.	
+
+=====================================================================================================
+[08/22/2015]
+
+CHANGES MADE:
+	1) The is_int and is_float funtions were added and this removed the possiblity of taking invalid
+	    input from the user which could potentialy crash the program. The program no longer crashes at
+		the generate_question nor any of the other selection functions anymore. [BUG #2]
+		
+=====================================================================================================		
